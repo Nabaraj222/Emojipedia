@@ -32,14 +32,34 @@ exports.create = async (req, res) =>{
 
 // retrive users
 exports.find = (req, res) =>{
-Userdb.find()
-.then(user => {
-    res.send(user);
-})
-.catch(err =>
+if(req.query.id)
 {
-    return res.status(500).send({message:err || 'error while finding user...'})
-})
+ const id = req.query.id;
+
+ Userdb.findById(id)
+ .then(data =>{
+     if(!data)
+     {
+        res.status(404).send({message:"user not found."})
+     }
+     else{
+        res.send(data);
+     }
+ })
+ .catch(err=>{
+    res.status(500).send({message:"error occurred while retrieving user with id: &{id}"});
+ })
+}
+else{
+    Userdb.find()
+    .then(user => {
+        res.send(user);
+    })
+    .catch(err =>
+    {
+        return res.status(500).send({message:err || 'error while finding user...'})
+    })   
+}
 }
 
 // update user
