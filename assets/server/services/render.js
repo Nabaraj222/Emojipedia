@@ -1,5 +1,19 @@
+const axios = require('axios');
+const baseURL = 'http://localhost:'+ process.env.PORT + '/api/'
+
 exports.homeRoutes = (req, res)=>{
-res.render('index');
+
+    // make a get request to api/users
+console.log('baseURL', baseURL);
+
+axios.get(baseURL+'users')
+.then(function(response){
+    console.log('11',response.data);
+    res.render('index', {users: response.data});
+})
+.catch(err =>{
+    res.send(err);
+})
 }    
 
 exports.add_user = (req, res)=>{
