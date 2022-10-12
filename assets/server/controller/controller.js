@@ -21,8 +21,11 @@ exports.create = async (req, res) =>{
     
     // save to database 
     try{
-        const response = await user.save();     
-        return res.status(200).json(response);
+        const response = await user.save()
+        .then(data => {
+            res.redirect("/");
+        });     
+        //return res.status(200).json(response);
     }
     catch(err)
     {
