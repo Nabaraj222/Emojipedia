@@ -1,5 +1,5 @@
 const axios = require('axios');
-const baseURL = 'http://localhost:'+ process.env.PORT + '/api/'
+const baseURL = 'http://localhost:'+ process.env.PORT + '/api/';
 
 exports.homeRoutes = (req, res)=>{
 
@@ -8,7 +8,7 @@ console.log('baseURL', baseURL);
 
 axios.get(baseURL+'users')
 .then(function(response){
-    console.log('11',response.data);
+    
     res.render('index', {users: response.data});
 })
 .catch(err =>{
