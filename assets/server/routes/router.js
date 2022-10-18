@@ -9,7 +9,7 @@ route.get('/add-user', services.add_user);
 
 route.get('/update-user', services.update_user);
 
-route.get('/api/test', (req, res) => res.json({msg: "Hi from server."}));
+route.get('/api/test', (req, res) => res.json({ msg: "Hi from server." }));
 route.post('/api/users', controller.create);
 route.get('/api/users', controller.find);
 route.put('/api/users/:id', controller.update);

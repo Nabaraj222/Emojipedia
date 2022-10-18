@@ -1,33 +1,31 @@
 const axios = require('axios');
-const baseURL = 'http://localhost:'+ process.env.PORT + '/api/';
+const baseURL = 'http://localhost:' + process.env.PORT + '/api/';
 
-exports.homeRoutes = (req, res)=>{
+exports.homeRoutes = (req, res) => {
 
     // make a get request to api/users
-console.log('baseURL', baseURL);
+    console.log('baseURL', baseURL);
 
-axios.get(baseURL+'users')
-.then(function(response){
-    
-    res.render('index', {users: response.data});
-})
-.catch(err =>{
-    res.send(err);
-})
-}    
+    axios.get(baseURL + 'users')
+        .then(function (response) {
+            res.render('index', { users: response.data });
+        })
+        .catch(err => {
+            res.send(err);
+        })
+}
 
-exports.add_user = (req, res)=>{
+exports.add_user = (req, res) => {
     res.render('add_user');
-}    
+}
 
-exports.update_user = (req, res)=>{
-    axios.get(baseURL+'users',{params:{id:req.query.id}})
-    .then(function(response)
-    {
-        res.render('update_user',{user:response.data});
-    })
-    .catch(err => {
-        res.send(err);
-    })
-    
+exports.update_user = (req, res) => {
+    axios.get(baseURL + 'users', { params: { id: req.query.id } })
+        .then(function (response) {
+            res.render('update_user', { user: response.data });
+        })
+        .catch(err => {
+            res.send(err);
+        })
+
 }    

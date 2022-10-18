@@ -4,61 +4,76 @@
 
 <!--Main-->
 <main id="site-main">
-    <div class="container">
-        <div class="box-nav d-flex-justify-between">
-            <div class="filter">
-                <a href="/"><i class="fas fa-angle-double-left"></i>All Users</a>
-            </div>
-        </div>
-        <div class="form-title text-center">
-            <h2 class="text-dark">
-                Update User
-            </h2>
-            <span class="text-light">
-                Use the below form to update a record.
-            </span>
-        </div>
-        <!--form handling-->
-        <form id="update_user" method="post">
-            <div class="new_user">
-                <div class="form-group">
-                    <label for="name" class="text-light">Name</label>
-                    <input type="hidden" name="id" value="<%= user._id %>">
-                    <input type="text" name="Name" value="<%= user.name %>" placeholder="Enter Name.">
-                </div>
-                <div class="form-group">
-                    <label for="email" class="text-light">Email</label>
-                    <input type="email" name="Email" value="<%= user.email %>" placeholder="Enter Email.">
-                </div>
-                <div class="form-group">
-                    <label for="gender" class="text-light">Gender</label>
-                    <div class="radio-inline">
-                        <input type="radio" name="gender" value="Male" <%= user.gender == 'Male' ? 'checked' : '' %>>
-                        <label for="gender" class="text-light">Male</label>
-                    </div>
-                    <div class="radio-inline">
-                        <input type="radio" name="gender" value="Female" <%= user.gender == 'Female' ? 'checked' : '' %>>
-                        <label for="gender" class="text-light">Female</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="status" class="text-light">Action</label>
-                    <div class="radio-inline">
-                        <input type="radio" name="status" value="Active" <%= user.status == 'Active' ? 'checked' : '' %>>
-                        <label for="status" class="text-light">Active</label>
-                    </div>
-                    <div class="radio-inline">
-                        <input type="radio" name="status" value="Inactive" <%= user.status == 'Inactive' ? 'checked' : '' %>>
-                        <label for="status" class="text-light">Inactive</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn text-dark update">Save</button>
-                </div>
-            </div>
-        </form>
-
+  <div class="container">
+    <div class="box-nav d-flex-justify-between">
+      <div class="filter">
+        <a href="/">
+          <button type="button" class="btn btn-info">Back to All Users</button>
+        </a>
+      </div>
     </div>
+    <!--form handling-->
+    <form id="update_user" method="post" style="margin-top: 15px">
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label for="name" class="text-light">Name</label>
+          <input type="hidden" name="id" value="<%= user._id %>" />
+          <input
+            type="text"
+            name="Name"
+            value="<%= user.name %>"
+            placeholder="Enter Name."
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label for="email" class="text-light">Email</label>
+          <input
+            type="email"
+            name="Email"
+            value="<%= user.email %>"
+            placeholder="Enter Email."
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label for="gender" class="text-light">Gender</label>
+          <div class="radio-inline">
+            <input type="radio" name="gender" value="Male" <%= user.gender ==
+            'Male' ? 'checked' : '' %>>
+            <label for="gender" class="text-light">Male</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" name="gender" value="Female" <%= user.gender ==
+            'Female' ? 'checked' : '' %>>
+            <label for="gender" class="text-light">Female</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label for="status" class="text-light">Action</label>
+          <div class="radio-inline">
+            <input type="radio" name="status" value="Active" <%= user.status ==
+            'Active' ? 'checked' : '' %>>
+            <label for="status" class="text-light">Active</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" name="status" value="Inactive" <%= user.status
+            == 'Inactive' ? 'checked' : '' %>>
+            <label for="status" class="text-light">Inactive</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </main>
 <!--/Main-->
 
