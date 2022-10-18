@@ -5,14 +5,14 @@ const controller = require('../controller/controller');
 
 route.get('/', services.homeRoutes);
 
-route.get('/add-user', services.add_user);
+route.get('/add-emoji', services.add_emoji);
 
-route.get('/update-user', services.update_user);
+route.get('/update-emoji', services.update_emoji);
 
 route.get('/api/test', (req, res) => res.json({ msg: "Hi from server." }));
-route.post('/api/users', controller.create);
-route.get('/api/users', controller.find);
-route.put('/api/users/:id', controller.update);
-route.delete('/api/users/:id', controller.delete);
+route.post('/api/emoji', controller.create);
+route.get('/api/emoji', controller.find);
+route.put('/api/emoji/:id', controller.update);
+route.delete('/api/emoji/:id', controller.delete);
 
 module.exports = route;

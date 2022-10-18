@@ -6,23 +6,23 @@ exports.homeRoutes = (req, res) => {
     // make a get request to api/users
     console.log('baseURL', baseURL);
 
-    axios.get(baseURL + 'users')
+    axios.get(baseURL + 'emoji')
         .then(function (response) {
-            res.render('index', { users: response.data });
+            res.render('index', { emojies: response.data });
         })
         .catch(err => {
             res.send(err);
         })
 }
 
-exports.add_user = (req, res) => {
-    res.render('add_user');
+exports.add_emoji = (req, res) => {
+    res.render('add_emoji');
 }
 
-exports.update_user = (req, res) => {
-    axios.get(baseURL + 'users', { params: { id: req.query.id } })
+exports.update_emoji = (req, res) => {
+    axios.get(baseURL + 'emoji', { params: { id: req.query.id } })
         .then(function (response) {
-            res.render('update_user', { user: response.data });
+            res.render('update_emoji', { emoji: response.data });
         })
         .catch(err => {
             res.send(err);

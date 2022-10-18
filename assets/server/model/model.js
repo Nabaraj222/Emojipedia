@@ -5,15 +5,17 @@ var schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
+    description: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
-    gender: String,
+    utf8: {
+        type:String,
+        required: true
+    },
     status: String
 })
 
-const Userdb = mongoose.model('user', schema);
+const emojiDb = mongoose.model('emoji', schema);
 
-module.exports = Userdb;
+module.exports = emojiDb;

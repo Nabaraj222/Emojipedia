@@ -1,5 +1,5 @@
 <!--form handling-->
-<form action="/api/users" id="add_user" method="post">
+<form action="/api/emoji" id="add_emoji" method="post">
   <div class="row">
     <div class="form-group col-lg-6">
       <label for="name" class="form-label">Name</label>
@@ -7,37 +7,35 @@
         type="text"
         name="name"
         class="form-control"
-        placeholder="Enter Name."
+        placeholder="Enter Emoji Name."
       />
     </div>
   </div>
   <div class="row">
     <div class="form-group col-lg-6">
-      <label for="email" class="text-label">Email</label>
+      <label for="description" class="text-label">Description</label>
       <input
-        type="email"
-        name="email"
+        type="text"
+        name="description"
         class="form-control"
-        placeholder="Enter Email."
+        placeholder="Enter Emoji Description."
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-lg-6">
+      <label for="utf8" class="text-label">UTF-8</label>
+      <input
+        type="text"
+        name="utf8"
+        class="form-control"
+        placeholder="Enter UTF-8 code."
       />
     </div>
   </div>
   <div class="row">
     <div class="form-group">
-      <label for="gender" class="text-label">Gender</label>
-      <div class="radio-inline">
-        <input type="radio" name="gender" value="Male" />
-        <label for="gender" class="text-light">Male</label>
-      </div>
-      <div class="radio-inline">
-        <input type="radio" name="gender" value="Female" />
-        <label for="gender" class="text-light">Female</label>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group">
-      <label for="status" class="text-light">Action</label>
+      <label for="status" class="text-light">Status</label>
       <div class="radio-inline">
         <input type="radio" name="status" value="Active" />
         <label for="status" class="text-light">Active</label>

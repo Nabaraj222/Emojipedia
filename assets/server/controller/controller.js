@@ -1,7 +1,7 @@
 const { response } = require('express');
-var Userdb = require('../model/model');
+const emojiDb = require('../model/model');
 
-// create and save a new user
+// save a new emoji
 exports.create = async (req, res) => {
 
     // validate request
@@ -10,62 +10,62 @@ exports.create = async (req, res) => {
         return;
     }
 
-    //new user
-    const user = new Userdb({
+    //new emoji
+    const emoji = new emojiDb({
         name: req.body.name,
-        email: req.body.email,
-        gender: req.body.gender,
+        description: req.body.description,
+        utf8: req.body.utf8,
         status: req.body.status
     })
 
     // save to database 
     try {
-        const response = await user.save()
+        const response = await emoji.save()
             .then(data => {
                 res.redirect("/");
             });
     }
     catch (err) {
-        return res.status(500).json({ message: err || 'error while adding user...' })
+        return res.status(500).json({ message: err || 'error while saving data...' })
     }
 }
 
-// retrive users
+// retrive emojies
 exports.find = (req, res) => {
     if (req.query.id) {
         const id = req.query.id;
 
-        Userdb.findById(id)
+        emojiDb.findById(id)
             .then(data => {
                 if (!data) {
-                    res.status(404).send({ message: "user not found." })
+                    res.status(404).send({ message: "data not found." })
                 }
                 else {
                     res.send(data);
                 }
             })
             .catch(err => {
-                res.status(500).send({ message: "error occurred while retrieving user with id: &{id}" });
+                res.status(500).send({ message: "error occurred while retrieving data with id: " + id });
             })
     }
     else {
-        Userdb.find()
-            .then(user => {
-                res.send(user);
+        emojiDb.find()
+            .then(emoji => {
+                res.send(emoji);
             })
             .catch(err => {
-                return res.status(500).send({ message: err || 'error while finding user...' })
+                return res.status(500).send({ message: err || 'error while finding emoji...' })
             })
     }
 }
 
-// update user
+// update emoji
 exports.update = (req, res) => {
     if (!req.body) {
         return res.status(400).send({ message: 'data cannot be empty.' })
     }
     const id = req.params.id;
-    Userdb.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    emojiDb.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {
             if (!data) {
                 res.status(404).send({ message: "can not update data with " + id + " not found." })
@@ -79,14 +79,14 @@ exports.update = (req, res) => {
         })
 }
 
-// delete user
+// delete emoji
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Userdb.findByIdAndDelete(id)
+    emojiDb.findByIdAndDelete(id)
         .then(data => {
             if (!data) {
-                res.status(404).send({ message: "can not delete data with " + id + " User not found." })
+                res.status(404).send({ message: "can not delete data with " + id + " not found." })
             }
             else {
                 res.send({ message: "data is deleted successfully." })

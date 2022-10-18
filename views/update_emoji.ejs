@@ -8,57 +8,56 @@
     <div class="box-nav d-flex-justify-between">
       <div class="filter">
         <a href="/">
-          <button type="button" class="btn btn-info">Back to All Users</button>
+          <button type="button" class="btn btn-info">Back to All Emojies</button>
         </a>
       </div>
     </div>
     <!--form handling-->
-    <form id="update_user" method="post" style="margin-top: 15px">
+    <form id="update_emoji" method="post" style="margin-top: 15px">
       <div class="row">
         <div class="form-group col-lg-6">
           <label for="name" class="text-light">Name</label>
-          <input type="hidden" name="id" value="<%= user._id %>" />
+          <input type="hidden" name="id" value="<%= emoji._id %>" />
           <input
             type="text"
             name="Name"
-            value="<%= user.name %>"
-            placeholder="Enter Name."
+            value="<%= emoji.name %>"
+            placeholder="Enter Emoji Name."
           />
         </div>
       </div>
       <div class="row">
         <div class="form-group col-lg-6">
-          <label for="email" class="text-light">Email</label>
+          <label for="description" class="text-light">Description</label>
           <input
-            type="email"
-            name="Email"
-            value="<%= user.email %>"
-            placeholder="Enter Email."
+            type="text"
+            name="description"
+            value="<%= emoji.description %>"
+            placeholder="Enter Emoji Description."
           />
         </div>
       </div>
       <div class="row">
         <div class="form-group col-lg-6">
-          <label for="gender" class="text-light">Gender</label>
-          <div class="radio-inline">
-            <input type="radio" name="gender" value="Male" <%= user.gender == 'Male' ? 'checked' : '' %>>
-            <label for="gender" class="text-light">Male</label>
-          </div>
-          <div class="radio-inline">
-            <input type="radio" name="gender" value="Female" <%= user.gender == 'Female' ? 'checked' : '' %>>
-            <label for="gender" class="text-light">Female</label>
-          </div>
+          <label for="utf8" class="text-label">UTF-8</label>
+          <input
+            type="text"
+            name="utf8"
+            value="<%= emoji.utf8%>"
+            class="form-control"
+            placeholder="Enter UTF-8 code."
+          />
         </div>
       </div>
       <div class="row">
         <div class="form-group col-lg-6">
-          <label for="status" class="text-light">Action</label>
+          <label for="status" class="text-light">Status</label>
           <div class="radio-inline">
-            <input type="radio" name="status" value="Active" <%= user.status == 'Active' ? 'checked' : '' %>>
+            <input type="radio" name="status" value="Active" <%= emoji.status == 'Active' ? 'checked' : '' %>>
             <label for="status" class="text-light">Active</label>
           </div>
           <div class="radio-inline">
-            <input type="radio" name="status" value="Inactive" <%= user.status == 'Inactive' ? 'checked' : '' %>>
+            <input type="radio" name="status" value="Inactive" <%= emoji.status == 'Inactive' ? 'checked' : '' %>>
             <label for="status" class="text-light">Inactive</label>
           </div>
         </div>

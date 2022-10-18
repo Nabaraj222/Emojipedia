@@ -7,7 +7,7 @@ if (window.location.pathname == "/") {
         var id = $(this).attr("data-id");
 
         var request = {
-            "url": baseURL + "users/" + id,
+            "url": baseURL + "emoji/" + id,
             "method": "DELETE",
         }
 
@@ -20,7 +20,7 @@ if (window.location.pathname == "/") {
     })
 }
 
-$("#update_user").submit(function (event) {
+$("#update_emoji").submit(function (event) {
     event.preventDefault();
     var unindexed_array = $(this).serializeArray();
     var data = {};
@@ -30,7 +30,7 @@ $("#update_user").submit(function (event) {
     })
 
     var request = {
-        "url": baseURL + "users/" + data.id,
+        "url": baseURL + "emoji/" + data.id,
         "method": "put",
         "data": data
     }
