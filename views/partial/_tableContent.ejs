@@ -6,15 +6,11 @@
   <td><%= users[i].gender %></td>
   <td><%= users[i].status %></td>
   <td>
-    <a
-      href="/update-user?id=<%= users[i]._id%>"
-      class="btn border-shadow update"
-    >
+    <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
       <button type="button" class="btn btn-primary">Change</button>
     </a>
-    <a class="btn border-shadow delete" data-id="<%" ="users[i]._id" %
-      >>
-      <button type="button" class="btn btn-danger">Remove</button>
+    <a class="btn border-shadow delete" data-id = <%= users[i]._id %>>
+        <button type="button" class="btn btn-danger">Remove</button>
     </a>
   </td>
 </tr>
